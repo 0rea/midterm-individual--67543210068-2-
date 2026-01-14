@@ -1,38 +1,43 @@
-# Student Management System - Layered Architecture
+# 💻 ENGSE207 Midterm Examination - Student Management System
 
 ## 📋 Project Information
-- **Student Name:** Nattapong
-- **Student ID:** 67543210068-2
 - **Course:** ENGSE207 Software Architecture
+- **Examination:** Midterm Practical Exam (Individual)
+- **Student ID:** 67543210068-2
+- **System:** Student Management System
 
 ---
 
 ## 📌 Project Overview
-This project is part of the ENGSE207 Software Architecture midterm examination.
-The system is a Student Management System developed using Node.js and Express,
-refactored from a Monolithic Architecture into a Layered Architecture (3-tier).
+This project is part of the ENGSE207 Software Architecture midterm examination.  
+The system is a simple **Student Management System** developed using **Node.js** and **Express**.
+
+The original system was implemented using a **Monolithic Architecture** and has been **refactored into a Layered Architecture (3-tier)** to improve maintainability, readability, and scalability.
 
 ---
 
-## 🏗 Architecture Style
+## 🏗️ Architecture Style
 **Layered Architecture (3-tier)**
 
-### Architecture Layers
-- **Presentation Layer**
-  - Handles HTTP requests and responses
-  - Controllers, Routes, and Middlewares
+### 1️⃣ Presentation Layer
+- Handles HTTP requests and responses
+- Implemented using Express Routes and Controllers
+- Responsible for input/output with clients
 
-- **Business Layer**
-  - Contains business logic and validation rules
-  - Services and Validators
+### 2️⃣ Business Layer
+- Contains business logic and validation rules
+- Implemented using Services and Validators
+- Ensures data correctness and enforces business rules
 
-- **Data Layer**
-  - Handles data persistence
-  - SQLite database and Repository pattern
+### 3️⃣ Data Layer
+- Manages data persistence
+- Uses SQLite database
+- Implements Repository pattern for database access
 
 ---
 
 ## 📂 Project Structure
+
 src/
 ├── presentation/
 │ ├── controllers/
@@ -42,55 +47,83 @@ src/
 │ ├── services/
 │ └── validators/
 └── data/
-├── repositories/
-└── database/
-
+├── database.js
+└── repositories/
 
 ---
 
 ## 🎯 Refactoring Summary
 
-### ❌ Problems of Monolithic Architecture
-- All logic was implemented in a single file
-- Business logic mixed with HTTP handling and database queries
+### ❌ Problems of Monolithic Architecture (Original System)
+- Business logic, validation, and database access mixed in the same files
 - Difficult to maintain and extend
-- Hard for multiple developers to work together
+- Hard to test individual components
+- Poor separation of concerns
 
 ### ✅ Solution Using Layered Architecture
-- Separated system into Presentation, Business, and Data layers
-- Each layer has a clear responsibility
-- Business rules are isolated from HTTP and database code
+- Separated responsibilities into Presentation, Business, and Data layers
+- Moved validation logic into Validators
+- Centralized business rules inside Services
+- Isolated database operations using Repository pattern
 
-### 🚀 Benefits
-- Easier to maintain and debug
+### ⭐ Benefits Achieved
+- Clear separation of concerns
+- Easier maintenance and future extension
 - Improved code readability
-- Better scalability for future features
-- Supports teamwork and cleaner development process
+- Better scalability and team collaboration
 
 ---
 
 ## 🚀 How to Run the Project
 
 ```bash
+# Install dependencies
 npm install
+
+# Run the server
 node server.js
 
 Server will run at:
 http://localhost:3000
 
-| Method | Endpoint                 | Description           |
-| ------ | ------------------------ | --------------------- |
-| GET    | /api/students            | Get all students      |
-| GET    | /api/students/:id        | Get student by ID     |
-| POST   | /api/students            | Create new student    |
-| PUT    | /api/students/:id        | Update student        |
-| PATCH  | /api/students/:id/gpa    | Update student GPA    |
-| PATCH  | /api/students/:id/status | Update student status |
-| DELETE | /api/students/:id        | Delete student        |
+📡 API Endpoints
+Method	Endpoint	Description
+GET	/api/students	Get all students
+POST	/api/students	Create a new student
 
 Example Request (POST)
 {
   "name": "Test Student",
   "email": "test@student.com",
-  "major": "Software Engineering"
+  "major": "Software Engineering",
+  "gpa": 3.5
 }
+
+Example Response
+{
+  "id": 1,
+  "name": "Test Student",
+  "email": "test@student.com",
+  "major": "Software Engineering",
+  "gpa": 3.5
+}
+
+✅ Technologies Used
+
+Node.js
+
+Express.js
+
+SQLite
+
+Git & GitHub
+
+📤 Submission Notes
+
+This project is submitted as part of the ENGSE207 Midterm Practical Examination
+
+The repository includes multiple commits showing step-by-step development
+
+Author:
+Student ID: 67543210068-2
+Course: ENGSE207 Software Architecture
