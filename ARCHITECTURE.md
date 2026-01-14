@@ -34,3 +34,16 @@ Client → Routes → Controllers → Services → Repositories → Database
 
 ## 📊 Architecture Diagram
 
+Client
+|
+v
+Presentation Layer
+|
+v
+Business Layer
+|
+v
+Data Layer
+|
+v
+SQLite Database
