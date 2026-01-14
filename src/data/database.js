@@ -8,7 +8,9 @@ db.serialize(() => {
       id INTEGER PRIMARY KEY AUTOINCREMENT,
       name TEXT NOT NULL,
       email TEXT NOT NULL,
-      major TEXT NOT NULL
+      major TEXT NOT NULL,
+      gpa REAL DEFAULT 0.0,
+      status TEXT DEFAULT 'active'
     )
   `);
 });
